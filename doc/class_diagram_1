@@ -1,0 +1,29 @@
+@startuml
+class RepositoryConfigurationDelegate
+interface RepositoryConfigurationExtension
+interface RepositoryConfigurationSource
+class AnnotationRepositoryConfigurationSource
+class MongoRepositoryConfigurationExtension
+class DefaultRepositoryConfiguration
+class RepositoryConfigurationSourceSupport
+class AnnotationRepositoryConfigurationSource
+class MongoRepositoryFactoryBean
+class RepositoryFactoryBeanSupport {
+  -customImplementation
+}
+interface RepositoryFactoryInformation
+interface FactoryBean
+
+
+RepositoryConfigurationDelegate ..> MongoRepositoryConfigurationExtension
+RepositoryConfigurationDelegate ..> AnnotationRepositoryConfigurationSource
+RepositoryConfigurationDelegate ..> DefaultRepositoryConfiguration
+RepositoryConfigurationExtension <|.. MongoRepositoryConfigurationExtension
+RepositoryConfigurationSourceSupport <|-- AnnotationRepositoryConfigurationSource
+RepositoryConfigurationSource <|.. RepositoryConfigurationSourceSupport
+RepositoryFactoryInformation <|.. RepositoryFactoryBeanSupport
+FactoryBean <|.. RepositoryFactoryBeanSupport
+RepositoryFactoryBeanSupport <|-- MongoRepositoryFactoryBean
+
+
+@enduml
