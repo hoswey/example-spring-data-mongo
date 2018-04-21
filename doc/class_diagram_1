@@ -9,6 +9,8 @@ class RepositoryConfigurationSourceSupport
 class AnnotationRepositoryConfigurationSource
 class MongoRepositoryFactoryBean
 class RepositoryBeanDefinitionBuilder
+class RepositoryFactorySupport
+class MongoRepositoryFactory
 class RepositoryFactoryBeanSupport {
   -customImplementation
   -queryLookupStrategyKey
@@ -21,6 +23,9 @@ class RepositoryFactoryBeanSupport {
 }
 interface RepositoryFactoryInformation
 interface FactoryBean
+class DefaultMethodInvokingMethodInterceptor
+class QueryExecutorMethodInterceptor
+class ImplementationMethodExecutionInterceptor
 
 
 RepositoryConfigurationDelegate ..> MongoRepositoryConfigurationExtension
@@ -33,6 +38,11 @@ RepositoryConfigurationSource <|.. RepositoryConfigurationSourceSupport
 RepositoryFactoryInformation <|.. RepositoryFactoryBeanSupport
 FactoryBean <|.. RepositoryFactoryBeanSupport
 RepositoryFactoryBeanSupport <|-- MongoRepositoryFactoryBean
+MongoRepositoryFactoryBean ..> MongoRepositoryFactory
+MongoRepositoryFactory --|> RepositoryFactorySupport
+RepositoryFactorySupport ..> DefaultMethodInvokingMethodInterceptor
+RepositoryFactorySupport ..> QueryExecutorMethodInterceptor
+RepositoryFactorySupport ..> ImplementationMethodExecutionInterceptor
 
 
 @enduml

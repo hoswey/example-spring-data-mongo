@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 /**
  * @author hoswey
  */
-public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
+public class CustomizedArticleRepositoryImpl implements CustomizedArticleRepository {
 
   @Resource
   private MongoOperations mongoOperations;

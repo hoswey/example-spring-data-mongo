@@ -16,6 +16,8 @@ public class Article {
 
   private String title;
 
+  private int numOfLike;
+
   public String getId() {
     return id;
   }

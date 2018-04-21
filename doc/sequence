@@ -1,0 +1,15 @@
+@startuml
+
+participant MongoRepositoriesAutoConfigureRegistrar
+
+participant RepositoryConfigurationDelegate
+
+MongoRepositoriesAutoConfigureRegistrar -> MongoRepositoriesAutoConfigureRegistrar: registerBeanDefinitions
+
+create RepositoryConfigurationDelegate
+
+MongoRepositoriesAutoConfigureRegistrar -> RepositoryConfigurationDelegate: new
+MongoRepositoriesAutoConfigureRegistrar -> RepositoryConfigurationDelegate: registerRepositoriesIn
+
+
+@enduml
