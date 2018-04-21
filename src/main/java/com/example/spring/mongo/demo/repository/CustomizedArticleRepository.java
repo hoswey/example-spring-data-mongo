@@ -5,5 +5,5 @@ package com.example.spring.mongo.demo.repository;
  */
 public interface CustomizedArticleRepository {
 
-  int countByAuthor(String author);
+  long countByAuthor(String author);
 }

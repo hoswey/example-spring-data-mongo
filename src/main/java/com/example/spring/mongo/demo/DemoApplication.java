@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.util.Assert;
 
 @SpringBootApplication
@@ -31,9 +30,9 @@ public class DemoApplication implements InitializingBean {
 
     articleRepository.insert(article);
 
-    Article article1 = articleRepository.findByAuthorOrderByIdDescAllIgnoreCase(author, PageRequest.of(0, 100)).getContent().get(0);
-
+    Article article1 = articleRepository.findByAuthorOrderByIdDescAllIgnoreCase(author).get(0);
     Assert.isTrue(article1.getTitle().equals(title), "");
 
+    Assert.isTrue(1 == articleRepository.countByAuthor(author), "");
   }
 }
